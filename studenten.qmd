@@ -2,4 +2,6 @@
 title: Für Studenten
 ---
 
-Diese Seite befindet sich noch im Aufbau. Momentan stehen für Studierende noch keine Übungsmöglichkeiten zur Verfügung. Stay tuned!
+Hier geht's zum Übungskurs für Studenten: <https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/38156107780>
+
+Der Kurs befindet sich noch im Aufbau und momentan sind nur 2 Aufgaben verfügbar, die aber viele Fragen enthalten (insgesamt 16 verschiedene Fragen in unterschiedlichen Kontexten). In den nächsten Monaten kommen stetig neue Aufgaben hinzu.
