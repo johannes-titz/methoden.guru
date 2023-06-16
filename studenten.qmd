@@ -1,5 +1,5 @@
 ---
-title: Für Studenten
+title: Für Studenten/-innen
 ---
 
 Hier geht's zum Übungskurs für Studenten: <https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/38156107780>

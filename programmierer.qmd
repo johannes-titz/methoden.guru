@@ -1,5 +1,5 @@
 ---
-title: Für Programmierer
+title: Für Programmierer/-innen
 ---
 
 Die Entwicklung des Pakets qti ist im vollen Gange. Schau doch mal auf unserer github-Seite vorbei:
