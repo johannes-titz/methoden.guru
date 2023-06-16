@@ -4,4 +4,4 @@ title: Für Studenten
 
 Hier geht's zum Übungskurs für Studenten: <https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/38156107780>
 
-Der Kurs befindet sich noch im Aufbau und momentan sind nur 2 Aufgaben verfügbar, die aber viele Fragen enthalten (insgesamt 16 verschiedene Fragen in unterschiedlichen Kontexten). In den nächsten Monaten kommen stetig neue Aufgaben hinzu.
+Der Kurs befindet sich noch im Aufbau und momentan sind drei Aufgaben verfügbar, die aber viele verschiedene Fragen und Kontexte enthalten. In den nächsten Monaten kommen stetig neue Aufgaben hinzu.
