@@ -8,9 +8,9 @@ website:
     logo: logo3.png
     logo-alt: "Our logo"
     left:
-      - text: "Für Studenten/-innen"
+      - text: "Für Student/-innen"
         file: studenten.qmd
-      - text: "Für Dozenten/-innen"
+      - text: "Für Dozent/-innen"
         file: dozenten.qmd
       - text: "Für Programmierer/-innen"
         file: programmierer.qmd
