@@ -1,5 +1,16 @@
 ---
-title: Für Dozent/-innen
+title: "Für Dozent/-innen"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: table
+  categories: cloud
+  sort-ui: false
+  filter-ui: false
+  max-description-length: 1000
+  fields: [date, title, reading-time]
+page-layout: full
+title-block-banner: false
+execute:
+  echo: false
 ---
-
-Diese Seite befindet sich noch im Aufbau. Momentan stehen für Dozent/-innen noch keine Übungsaufgaben zur Verfügung. Stay tuned!

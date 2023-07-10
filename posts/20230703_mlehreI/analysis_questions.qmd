@@ -1,0 +1,105 @@
+---
+title: Diagnostische Auswertung Methodenlehre I 2023
+author: Dr. Johannes Titz
+date: 10.07.2023
+execute:
+  echo: false
+  warning: false
+---
+
+Bereits 2023 haben wir in der Methodenlehre I Klausur einige neue Aufgaben aus dem Methodenguru-Projekt ausprobiert. Heute schauen wir uns an, welche von diesen Aufgaben gute diagnostische Eigenschaften haben.
+
+Es gab 4 Versionen der Klausur, zu der jeder Teilnehmer zufällig zugelost wurde. Zum Zeitpunkt der Klausur haben wir noch das `exams`-Paket für die Aufgabenerstellung benutzt, weshalb es wirklich für jede Aufgabe 4 Versionen gab; selbst für diejenigen die eigentlich statisch sind (z. B. Single-Choice-Aufgaben). Für die Analyse werden diese 4 Versionen zusammengefasst über Mittelwerte und Standardabweichungen. Wir schauen uns heute nur die Statistiken auf der Aufgaben-Ebene an. Das Ziel ist es schlechte Aufgaben zu identifizieren und auszuschließen. Für Dozent/-innen die unsere Aufgaben nutzen möchten, ist es natürlich interessant zu sehen, wie gut die Aufgaben performen.
+
+Als Statistiken werden wir uns die Trennschärfe und Aufgabenschwierigkeit anschauen. Die Trennschärfe ist part-whole korrigiert. Zur groben Orientierung wird ein Filter gesetzt für Trennschärfen größer 0.3 und Itemschwierigkeiten zwischen 0.1 und 0.9.
+
+```{r}
+librarian::shelf(qti, dplyr, tidyr, simpleCache)
+
+mycor <- function(x, y) {
+  if (sd(x) == 0) return(NA)
+  if (sd(y) == 0) return(NA)
+  cor(x, y)
+}
+
+setCacheDir("simpleCache")
+simpleCache("ex", extract_results("2023_mlehreI_results.zip", "exercises", hide_filename = T), recreate = F)
+```
+
+```{r}
+qs <- ex %>%
+  #filter(!grepl("Lungwitz\\_Vivien", file)) %>%
+  slice(-c(1351:1368)) %>%
+  distinct()
+
+qs$GROUP <- as.numeric(stringr::str_match(qs$id_question, "item_([0-9]+)")[,2])
+
+qs <- qs %>%
+  group_by(file) %>%
+  mutate(sum_score = sum(score_candidate),
+         title = substr(title, 9, 100))
+```
+
+Das $N$ beträgt `r length(unique(qs$file))`. Die folgende Tabelle zeigt die Itemschwierigkeiten (difficulty) und Trennschärfen (r_it) aggregiert über die 4 Versionen. Zusätzlich wird auch die Dauer der Bearbeitung in Minuten angezeigt. m: mean, sd = standard deviation
+
+```{r}
+summaryA <- qs %>%
+  group_by(title, GROUP) %>%
+  summarize(r_it = mycor(score_candidate, sum_score - score_candidate),
+            difficulty = mean(score_candidate/score_max),
+            duration = mean(duration)/60,
+            score_max = mean(score_max),
+            n = n())
+
+summaryB <- summaryA %>%
+  group_by(title) %>%
+  summarize(across(r_it:duration,
+                   list(m = \(x) weighted.mean(x, n, na.rm = TRUE),
+                        sd = \(x) sqrt(Hmisc::wtd.var(x, na.rm=TRUE))))) %>%
+  mutate(good = ifelse(r_it_m >= 0.3 & difficulty_m <= .9, TRUE, FALSE)) %>%
+  #filter(r_it_m >= 0.3, difficulty_m <= .9) %>%
+  arrange(desc(good), desc(r_it_m))
+knitr::kable(summaryB, digits = 2)
+```
+
+## Top: Regression und t-Test
+
+Die Tabelle ist in zwei Bereiche eingeteilt. Oben sind die guten Aufgaben mit Trennschärfen größer 0.3 und Schwierigkeiten zwischen 0.1 und 0.9 (letzte Spalte good ist TRUE). Man erkennt sofort, dass unsere Flagship-Aufgaben am besten performen: nämlich die **Regressionsaufgabe** und die **t-Test**-Aufgabe. Das sind die Aufgaben, die wir komplett neu im Projekt entwickelt haben und die auch im Kurs für Studierende zur Verfügung stehen (<https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/38156107780>). Sie basieren auf echten Daten, sind numerisch und bilden unserer Meinung nach wirklich relevante Kompetenzen im Forschungsalltag ab. Wir machen also offensichtlich schon einiges richtig! :) Diese zwei Aufgaben brauchen nur noch kosmetische Pflege: Programmiercode refactoren, die Formulierungen verbessern und eine bessere Auswahl von Bedingungen ermöglichen. Natürlich wäre auch eine Analyse auf Item-Ebene interessant, aber die können wir dann ggf. bei einer richtigen Publikation durchführen.
+
+## Mittelmaß: z-Werte, bedingte Wahrscheinlichkeiten
+
+Bei der z-Werte-Aufgabe könnte die Trennschärfe größer sein. Hier müssen wir ggf. mehr Varianten erzeugen, da die Aufgabe seit ein paar Jahren in Umlauf ist und die Studierenden diese vermutlich schon gut kennen. Inhaltlich muss man momentan Rohwerte aus z-Werten berechnen, man könnte als Variation auch z-Werte aus Rohwerten berechnen lassen.
+
+Die Wahrscheinlichkeitstheorie-Aufgabe könnte auch etwas besser performen, insbesondere da sie viel Zeit in Anspruch nimmt. Nach Gesprächen mit Studierenden kam diese Aufgabe wohl für einige etwas unerwartet (sieht man auch an der relativ niedrigen Lösungsrate). Wenn sich Studierende auf bestimmte Themen nicht vorbereiten, wird die Trennschärfe natürlich darunter leiden. Die Aufgabe ist aber an sich recht wichtig, da bedingte Wahrscheinlichkeiten im Alltag eine große Rolle spielen. Man denke beispielsweise an die Wirksamkeit von Impfungen (<https://johannestitz.com/de/post/2022-02-14-wirksamkeit-corona/>). Daher werden wir diese Aufgabe wohl nie komplett herausnehmen. Aber eine Variation wäre möglich, bei der mehr Werte vorgegeben sind, sodass die Berechnung nicht so lange dauert.
+
+## Flop: Stamm-Blatt, Power
+
+Die Aufgabe zum Stamm-Blatt-Diagramm ist viel zu leicht, weshalb sie aus unserem Kanon herausfliegen wird. Die Aufgabe zur Power performt auch sehr schlecht und Bedarf einer Überarbeitung. Die Power-Aufgabe ist momentan als Multiple-Choice konzipiert, sodass Raten einen großen Einfluss haben kann. Denkbar ist auch wieder, dass die Studierenden die Power beim Lernen vernachlässigt haben. Die Lösungsrate ist recht niedrig, vergleichbar mit der Wahrscheinlichkeitstheorie-Aufgabe, bei der jedoch die Trennschärfe deutlich besser ist.
+
+## Single-Choice-Aufgaben sind viel zu leicht
+
+Obwohl die Trennschärfen durchweg gut sind, fällt auf, dass die Single-Choice-Aufgaben viel zu leicht sind. Die Lösungsraten liegen meist bei über 90%, in manchen Subgruppen bei 100% (siehe Abschnitt ganz unten in diesem Text). Ich vermute, dass Single-Choice-Aufgaben von Studierenden übe die Jahre hinweg gesammelt wurden und somit den meisten bekannt sind. Legt man ein etwas strengeres Kriterium an, so sind im Grunde nur die Single-Choice-Aufgaben zur Meta-Analyse (metaanalyse1) und zum Experiment (experiment5) brauchbar. Aber auch diese werden sich irgendwann abnutzen. Man könnte dies natürlich auch unseren anderen Aufgaben vorwerfen. 
+
+Irgendwann ist klar, dass wir jedes Mal die Regressions-Aufgabe abfragen. Allerdings ist dies anders als bei Single-Choice-Aufgaben. Die Regressions-Aufgabe erfordert viel Wissen, was man nicht einfach auswendig lernen kann. Studierende müssten sicher 5-10h Lernzeit investieren um die Aufgabe souverän lösen zu können. Abkürzungen gibt es nicht. Bei anderen Aufgaben ist dies ähnlich. Bei Single-Choice-Aufgaben reicht eine Assoziation (Meta-Analyse: empirische Stichprobenverteilung) ohne tieferes Verständnis.
+
+Außerdem müssen wir nicht immer die Regressions-Aufgabe benutzen. Eine Aufgabe zur ANOVA ist genauso anspruchsvoll und wichtig und erfordert genauso viel Vorbereitungszeit. Da Studierende nicht wissen, welche von diesen großen Aufgaben in der Klausur vorkommt, müssen sie sich auf beide vorbereiten. Daher sehe ich momentan kein Problem für die Trennschärfe und Itemschwierigkeit. Jemand der eine 1,0 haben will, wird mehr lernen müssen, da er/sie mehr wissen muss. Da nicht alle gleich viel lernen, wird die Schwierigkeit und Trennschärfe passabel sein. Aber das muss natürlich empirisch belegt werden.
+
+## Varianz zwischen Versionen
+
+Im Allgemeinen schwanken die Trennschärfen und Schwierigkeiten etwas zwischen den Versionen, aber nicht so stark, dass es problematisch wäre. So ist die Schwankung bei statischen Aufgaben wie `experiment1` (eine Single-Choice-Aufgabe) sogar noch höher. Ein Großteil der Varianz geht also einfach auf die zufällige Zuteilung der Studierenden auf die 4 Klausurversionen zurück. Die Gruppengrößen sind 27, 31, 33 und 42. Das ist natürlich nicht ausreichend um ein ähnliches Fähigkeitsniveau zwischen den Gruppen zu gewährleisten. 
+
+An der Gesamtstichprobe können wir nicht viel drehen. Man könnte aber einfach nur 2 Versionen erzeugen, dann hätten wir Gruppengrößen von ungefähr 65-70. Eine einzige Version wäre auch denkbar, dann müsste man aber sicher gehen, dass die Studierenden nicht abschreiben können. Da die Erstellung mehrerer Versionen technisch aufwändiger ist, favorisiere ich momentan diese Variante. In diesem Fall gibt es auch keinerlei Fairness-Probleme, die bei mehreren Versionen nie zu 100% ausgeschlossen werden können. Unser Ziel war es im Grunde auch nie verschiedene Klausurversionen zu einer Prüfung zu erzeugen, sondern verschiedene Versionen zum Üben und über Prüfungen hinweg. Betrugsversuche müssen in jedem Fall verhindert werden, was nicht in erster Linie Aufgabe der Klausurersteller ist.
+
+
+## Dauer der Bearbeitung
+
+Die Dauer der Bearbeitung einer Aufgabe kann dazu dienen eine zeitlich angemessene Klausur zu erstellen. Allerdings ist die Information zur Dauer bei zu großzügiger Zeitvorgabe nicht valide. Die meisten Studierenden senden die Klausur zum Schluss ab, selbst wenn sie schon vorher alle Aufgaben bearbeitet haben. Insbesondere bei schwierigen Aufgaben ist die Zeitangabe daher sicher überschätzt. Die Summe der Dauern sollte etwas unter 90min liegen, wenn einige Studierende vorher abgeben. Tatsächlich ist die Summe der Dauern `r round(sum(summaryB$duration_m), 2)`.
+
+Zu guter Letzt kommt hier noch die Analyse für jede der 4 Klasurversionen, die aber nicht weiter diskutiert wird. NA bedeutet, dass eine Berechnung der Trennschärfe möglich war, da die Lösungsrate bei 100% lag.
+
+## unaggregiert
+
+```{r}
+knitr::kable(summaryA, digits = 2)
+```
+
