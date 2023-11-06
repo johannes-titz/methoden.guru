@@ -2,6 +2,29 @@
 title: Für Student/-innen
 ---
 
-Hier geht's zum Übungskurs für Student/-innen: <https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/38156107780>
+Hier geht's zum Übungskurs für Student/-innen:
 
-Der Kurs befindet sich noch im Aufbau und momentan sind drei Aufgaben verfügbar, die aber viele verschiedene Fragen und Kontexte enthalten. In den nächsten Monaten kommen stetig neue Aufgaben hinzu.
+<https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/38156107780>
+
+Der Kurs befindet sich noch im Aufbau. Momentan werden folgende Kompetenzen geübt:
+
+1. Variablen den fünf Skalenniveaus korrekt zuordnen (~5 Kompetenzen)
+1. gängige Laße- und Streuungsmaße berechnen (~8 Kompetenzen)
+1. die einfache lineare Regression verstehen (~10 Kompetenzen)
+1. Signifikanztest für 2 Mittelwerte verstehen (~4 Kompetenzen)
+1. Power für Signifikanztest verstehen (~6 Kompetenzen)
+1. Prozess der Meta-Analyse verstehen (~5 Kompetenzen)
+<!-- 1. Bayesianische Revision praktisch anwenden (~5 Kompetenzen) -->
+<!-- 1. Design und Validität von Studien beurteilen (~4 Kompetenzen) 47--> 
+<!-- 1. Umgang mit z-Werten (~2 Kompetenzen) 49 -->
+<!-- nochmals Power mit Aussagen -->
+<!-- vllt. noch was mit alpha, beta... -->
+<!-- boxplots als numerische? -->
+<!-- confidence interval als numerische -->
+<!-- anova 10-->
+<!-- FA 10-->
+<!-- multiple regression -->
+
+Somit werden momentan maximal 38 verschiedene Kompetenzen geübt. Die Aufgaben werden zufällig gezogen, es lohnt sich also wiederholt zu üben, selbst wenn man schon alles richtig gemacht hat.
+
+In den nächsten Monaten kommen stetig neue Aufgaben hinzu, komm also regelmäßig vorbei.
