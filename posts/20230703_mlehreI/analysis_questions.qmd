@@ -95,7 +95,7 @@ An der Gesamtstichprobe können wir nicht viel drehen. Man könnte aber einfach 
 
 Die Dauer der Bearbeitung einer Aufgabe kann dazu dienen eine zeitlich angemessene Klausur zu erstellen. Allerdings ist die Information zur Dauer bei zu großzügiger Zeitvorgabe nicht valide. Die meisten Studierenden senden die Klausur zum Schluss ab, selbst wenn sie schon vorher alle Aufgaben bearbeitet haben. Insbesondere bei schwierigen Aufgaben ist die Zeitangabe daher sicher überschätzt. Die Summe der Dauern sollte etwas unter 90min liegen, wenn einige Studierende vorher abgeben. Tatsächlich ist die Summe der Dauern `r round(sum(summaryB$duration_m), 2)`.
 
-Zu guter Letzt kommt hier noch die Analyse für jede der 4 Klasurversionen, die aber nicht weiter diskutiert wird. NA bedeutet, dass eine Berechnung der Trennschärfe möglich war, da die Lösungsrate bei 100% lag.
+Zu guter Letzt kommt hier noch die Analyse für jede der 4 Klasurversionen, die aber nicht weiter diskutiert wird. NA bedeutet, dass eine Berechnung der Trennschärfe nicht möglich war, da die Lösungsrate bei 100% lag.
 
 ## unaggregiert
 
