@@ -3,17 +3,18 @@ title: Die Gurus
 ---
 
 |                                                                                                                               |                                                                                                        |
-|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+|---------------------------------------|---------------------------------|
 | Dr. Markus Burkhardt ist Co-Antragssteller und kreative Kraft für neue Aufgaben.                                              | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/markus.jpg){width="180"}   |
 | Dr. Johannes Titz ist Antragssteller, leitet das Projekt und entwickelt neue Aufgaben.                                        | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/Johannes.jpg){width="180"} |
 | Vivien Lungwitz ist unser Organisationsguru und kümmert sich um die Finanzen.                                                 | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/vivien.jpg){width="180"}   |
 | Andrey Shevandrin ist unser QTI-Guru und baut unsere R-Pakete.                                                                | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/andrey.jpg){width="180"}   |
-| Peter Bondarenko unterstützt als studentische Hilfskraft die Programmierung und ist dort unter anderem fürs Testen zuständig. | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/Petr.jpg){width="180"}                                                                                                        |
+| Peter Bondarenko unterstützt als studentische Hilfskraft die Programmierung und ist dort unter anderem fürs Testen zuständig. | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/Petr.jpg){width="180"}     |
 | Toni Zapke untersucht als studentische Hilfskraft die aktuelle Landschaft der Methodenlehre an deutschen Universitäten.       | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/toni.jpg){width="180"}     |
-| Annika Sternkopf untersucht als studentische Hilfskraft die aktuelle Landschaft der Methodenlehre an deutschen Universitäten.       | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/annika.jpg){width="180"}     |
+| Annika Sternkopf untersucht als studentische Hilfskraft die aktuelle Landschaft der Methodenlehre an deutschen Universitäten. | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/annika.jpg){width="180"}   |
+| Moritz Dallmann is als studentische Hilfkraft für die Erstellung neuer Aufgaben zustädnig                                                                                                           | ![](https://www.tu-chemnitz.de/hsw/psychologie/professuren/method/img/Staff/moritz.jpg){width="180"}                                                                                                        |
 
 Ehemalige Gurus:
 
 |                                                                                                                                          |     |
-|------------------------------------------------------------------------------------------------------------------------------------------|-----|
+|-------------------------------------------------------------|-----------|
 | Ivonne Yulieth Ojeda Cuervo unterstützte als studentische Hilfskraft die Programmierung und war dort insbesondere fürs Testen zuständig. |     |
