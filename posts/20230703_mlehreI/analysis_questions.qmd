@@ -38,6 +38,7 @@ qs <- qs %>%
   group_by(file) %>%
   mutate(sum_score = sum(score_candidate),
          title = substr(title, 9, 100))
+write.csv(qs, "2023.csv")
 ```
 
 Das $N$ beträgt `r length(unique(qs$file))`. Die folgende Tabelle zeigt die Itemschwierigkeiten (difficulty) und Trennschärfen (r_it) aggregiert über die 4 Versionen. Zusätzlich wird auch die Dauer der Bearbeitung in Minuten angezeigt. m: mean, sd = standard deviation
