@@ -6,15 +6,16 @@ Hier geht's zum Übungskurs für Student/-innen:
 
 <https://bildungsportal.sachsen.de/opal/auth/RepositoryEntry/38156107780>
 
-Der Kurs befindet sich noch im Aufbau. Momentan werden folgende Kompetenzen geübt:
+Der Kurs befindet sich noch im Aufbau. Momentan sind folgende Aufgaben enthalten:
 
-1. Variablen den fünf Skalenniveaus korrekt zuordnen (~5 Kompetenzen)
-1. gängige Laße- und Streuungsmaße berechnen (~8 Kompetenzen)
-1. die einfache lineare Regression verstehen (~10 Kompetenzen)
-1. Signifikanztest für 2 Mittelwerte verstehen (~4 Kompetenzen)
-1. Power für Signifikanztest verstehen (~6 Kompetenzen)
-1. Prozess der Meta-Analyse verstehen (~5 Kompetenzen)
-<!-- 1. Bayesianische Revision praktisch anwenden (~5 Kompetenzen) -->
+1. Variablen den fünf Skalenniveaus korrekt zuordnen (56 Fragen bezogen auf die 5 Skalenniveaus)
+1. gängige Laße- und Streuungsmaße berechnen (9 Fragen, unendlich viele Versionen)
+1. die einfache lineare Regression verstehen (11 Fragen, unendlich viele Versionen)
+1. Signifikanztest für 2 Mittelwerte verstehen (4 Fragen, unendlich viele Versionen)
+1. Signifikanztest visuell verstehen (6 Fragen, unendlich viele Versionen)
+1. Parameter des Signifikanztests verstehen (18 Fragen)
+1. Prozess der Meta-Analyse verstehen (5 Fragen, unendlich viele Versionen)
+1. Bayesianische Revision praktisch anwenden (5 Fragen, unendlich viele Versionen)
 <!-- 1. Design und Validität von Studien beurteilen (~4 Kompetenzen) 47--> 
 <!-- 1. Umgang mit z-Werten (~2 Kompetenzen) 49 -->
 <!-- nochmals Power mit Aussagen -->
@@ -24,7 +25,10 @@ Der Kurs befindet sich noch im Aufbau. Momentan werden folgende Kompetenzen geü
 <!-- anova 10-->
 <!-- FA 10-->
 <!-- multiple regression -->
+<!-- Anzahl Kompetenzen: bei Regression sind es eher 10, Bei Parameter sigtest vllt. 9 da es egal is ob hoch oder runter, bei t-test, einseitig/zweiseitig, unten/oben, +2 Kompetenzen?-->
 
-Somit werden momentan maximal 38 verschiedene Kompetenzen geübt. Die Aufgaben werden zufällig gezogen, es lohnt sich also wiederholt zu üben, selbst wenn man schon alles richtig gemacht hat.
+Die Anzahl der geübten Kompetenzen ist geringer als die Anzahl der verschiedenen Fragen. Wir schätzen, dass momentan maximal 54 Kompetenzen geprüft werden. 
 
-In den nächsten Monaten kommen stetig neue Aufgaben hinzu, komm also regelmäßig vorbei.
+Die Aufgaben werden zufällig gezogen, es lohnt sich also wiederholt zu üben, selbst wenn man schon alles richtig gemacht hat.
+
+In den nächsten Monaten kommen neue Aufgaben hinzu, komm also regelmäßig vorbei.
